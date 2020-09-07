@@ -14,14 +14,7 @@ export class ListComponent implements OnInit, OnChanges {
   constructor() { }
 
   ngOnInit(): void {
-    this.messages = [{
-      text: 'test1',
-      datetime: new Date()
-    },
-    {
-      text: 'test2',
-      datetime: new Date()
-    }];
+    this.refreshAll();
   }
 
   ngOnChanges(): void {
@@ -31,4 +24,18 @@ export class ListComponent implements OnInit, OnChanges {
     this.messages.push(this.postedMessage);
   }
 
+  deleteAll(): void {
+    this.messages = [];
+  }
+
+  refreshAll(): void {
+    this.messages = [{
+      text: 'test1',
+      datetime: new Date()
+    },
+    {
+      text: 'test2',
+      datetime: new Date()
+    }];
+  }
 }
