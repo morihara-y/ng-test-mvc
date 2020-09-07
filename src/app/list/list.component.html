@@ -1,0 +1,11 @@
+<button mat-icon-button>
+  <mat-icon>delete</mat-icon>
+</button>
+<button mat-icon-button>
+  <mat-icon>refresh</mat-icon>
+</button>
+<mat-divider></mat-divider>
+<mat-list-item *ngFor="let message of messages">
+  <div mat-line>{{message.text}}</div>
+  <div mat-line> {{message.datetime | date:"yyyy年MM月dd日 HH時mm分"}} </div>
+</mat-list-item>
