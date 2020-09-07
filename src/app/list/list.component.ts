@@ -1,14 +1,15 @@
 import { Message } from './../models/message.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.less']
 })
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, OnChanges {
 
   messages: Array<Message> = [];
+  @Input() postedMessage: Message;
 
   constructor() { }
 
@@ -21,6 +22,13 @@ export class ListComponent implements OnInit {
       text: 'test2',
       datetime: new Date()
     }];
+  }
+
+  ngOnChanges(): void {
+    if (!this.postedMessage || !this.postedMessage.text) {
+      return;
+    }
+    this.messages.push(this.postedMessage);
   }
 
 }
