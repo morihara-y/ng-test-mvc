@@ -6,6 +6,8 @@
 </button>
 <mat-divider></mat-divider>
 <mat-list-item *ngFor="let message of messages">
-  <div mat-line>{{message.text}}</div>
-  <div mat-line> {{message.datetime | date:"yyyy年MM月dd日 HH時mm分"}} </div>
+  <div class="flex">
+    <div mat-line class="padding">{{message.text}}</div>
+    <div mat-line class="padding"> {{message.datetime | date:"yyyy年MM月dd日 HH時mm分"}} </div>
+  </div>
 </mat-list-item>

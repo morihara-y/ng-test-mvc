@@ -13,7 +13,14 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.messages = [];
+    this.messages = [{
+      text: 'test1',
+      datetime: new Date()
+    },
+    {
+      text: 'test2',
+      datetime: new Date()
+    }];
   }
 
 }
