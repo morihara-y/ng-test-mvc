@@ -1,3 +1,4 @@
+import { MessageService } from './../services/message.service';
 import { Message } from './../models/message.model';
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class ListComponent implements OnInit, OnChanges {
   messages: Array<Message> = [];
   @Input() postedMessage: Message;
 
-  constructor() { }
+  constructor(private service: MessageService) { }
 
   ngOnInit(): void {
     this.refreshAll();
@@ -26,16 +27,14 @@ export class ListComponent implements OnInit, OnChanges {
 
   deleteAll(): void {
     this.messages = [];
+    this.service.deleteAll().subscribe(_ => {
+      console.log('delete is done');
+    });
   }
 
   refreshAll(): void {
-    this.messages = [{
-      text: 'test1',
-      datetime: new Date()
-    },
-    {
-      text: 'test2',
-      datetime: new Date()
-    }];
+    this.service.getAll().subscribe(res => {
+      this.messages = res;
+    });
   }
 }

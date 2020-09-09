@@ -16,6 +16,7 @@ import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
 import { FormsModule } from '@angular/forms';
 import { MainComponent } from './main/main.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { MainComponent } from './main/main.component';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,4 @@
+import { MessageService } from './../services/message.service';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Message } from '../models/message.model';
 
@@ -12,7 +13,7 @@ export class FormComponent implements OnInit {
 
   @Output() messagePost: EventEmitter<Message> = new EventEmitter();
 
-  constructor() { }
+  constructor(private service: MessageService) { }
 
   ngOnInit(): void {
     this.text = '';
@@ -28,5 +29,8 @@ export class FormComponent implements OnInit {
     };
     this.messagePost.emit(message);
     this.text = '';
+    this.service.post(message).subscribe(res => {
+      console.log('insert done' + res);
+    });
   }
 }
