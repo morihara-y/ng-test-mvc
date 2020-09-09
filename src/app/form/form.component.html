@@ -1,0 +1,7 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Message</mat-label>
+    <input matInput placeholder="text" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="post()">Post</button>
+</form>
